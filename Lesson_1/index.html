@@ -1,12 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lisson_1</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <script>
+      /* const arr = [1, 3, 5, 7, 10];
+      function max(param1, param2, ...rest) {
+        if (param1 > param2) {
+          console.log(param1);
+        } else if (param1 < param2) {
+          console.log(param2);
+        }
+        console.log(rest);
+      }
+
+      console.log(max(...arr));
+      //console.log(Math.max(...arr)); */
+
+      //счетчик через замыкание
+      /* const createCounter = ()=>{
+  let counter = 0;
+  return ()=>{
+    return ++counter;
+  }
+}
+
+const counter_1 = createCounter();
+console.log(`Счетчик 1: ${counter_1()}`);
+console.log(`Счетчик 1: ${counter_1()}`);
+console.log(`Счетчик 1: ${counter_1()}`);
+
+const counter_2 = createCounter();
+console.log(`Счетчик 2: ${counter_2()}`); */
+
+      //функция с кэш
+      /* const closureFunction = ()=>{
+  const cache = {};
+  return (x) => {
+    if (cache[x]) return cache[x];
+    const result = x*x;
+    cache[x] = result;
+    return result;
+  }
+}
+
+const cachedPow = closureFunction();
+console.log(cachedPow(2));
+console.log(cachedPow(8));
+console.log(cachedPow(2));
+ */
+
+      //Рекурсия
+      //n! = (n-1)! * n;
+      //4! = 1 * 2 * 3 * 4;
+      //4! = 3! * 4;
+      //3! = 1 * 2 * 3;
+      //2! = 1 * 2;
+      //1! = 1;
+
+      function factorial(number) {
+        if (number === 1) {
+          return 1;
+        }
+        return factorial(number - 1) * number;
+      }
+
+      console.log(factorial(3));
+    </script>
+  </body>
 </html>
