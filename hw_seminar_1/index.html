@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hw_seminar_1</title>
+  </head>
+  <body>
+    <div class="root">
+        <div class="first">
+            <div class="third">
+                <div class="my-class">Искомый блок</div>
+            </div>
+        </div>
+        <div class="second"></div>
+    </div>
+
+    <script>
+      //1) Дан массив const arr = [1, 5, 7, 9] с помощью Math.min и spread оператора, найти минимальное число в массиве, решение задание должно состоять из одной строки
+
+      arr = [1, 5, 7, 9];
+      console.log(
+        `Минимальное число в массиве [${arr}] равно ${Math.min(...arr)}`
+      );
+
+      //2) Напишите функцию createCounter, которая создает счетчик и возвращает объект с двумя методами: increment и decrement. Метод increment должен увеличивать значение счетчика на 1, а метод decrement должен уменьшать значение счетчика на 1. Значение счетчика должно быть доступно только через методы объекта, а не напрямую.
+
+      const createCounter = () => {
+        let count = 0;
+
+        function getValue() {
+          return count;
+        }
+
+        function increment() {
+          count++;
+        }
+
+        function decrement() {
+          count--;
+        }
+
+        return {
+          getValue,
+          increment,
+          decrement,
+        };
+      };
+
+      const counter = createCounter();
+      console.log(`Значение счетчика равно ${counter.getValue()}`);
+      counter.increment();
+      counter.increment();
+      console.log(`Значение счетчика равно ${counter.getValue()}`);
+      counter.decrement();
+      console.log(`Значение счетчика равно ${counter.getValue()}`);
+
+      //3) Напишите рекурсивную функцию findElementByClass, которая принимает корневой элемент дерева DOM и название класса в качестве аргументов и возвращает первый найденный элемент с указанным классом в этом дереве.
+      /* Пример;
+      const rootElement = document.getElementById("root");
+      const targetElement = findElementByClass(rootElement, "my-class");
+      console.log(targetElement); */
+
+      const findElementByClass = (rootElement, targetClassName)=>{
+        if (rootElement.classList.contains(targetClassName)){
+            return rootElement;
+        }
+        return findElementByClass(rootElement.children[0], targetClassName);
+      }
+
+      const rootElement = document.querySelector('.root');
+      const targetElement = findElementByClass(rootElement, "my-class");
+      console.log(targetElement);
+
+      //Функция работает только в глубину дерева и не работает в ширину, но в задании этого не было.
+      
+    </script>
+  </body>
+</html>
