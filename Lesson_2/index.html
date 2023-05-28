@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson_2</title>
+  </head>
+  <body>
+    <script>
+      const obj = {
+        pass: {
+          site1: "2342526",
+          site2: "993938",
+        },
+        data: {
+          sister: "03.02.1975",
+          dima: "15.11,1965",
+        },
+        sister: {
+          name: "Olga",
+          children: {
+            name: "Dasha",
+          },
+        },
+      };
+
+      class User {
+        name = "aaaaaaaaaaaaa";
+        age = "";
+
+        constructor(name) {
+          this.name = name;
+        }
+
+        work = () => {
+          console.log(`${this.name} работает`);
+        };
+      }
+
+      const user = new User("Alex");
+      console.log(user.name);
+    </script>
+  </body>
+</html>
