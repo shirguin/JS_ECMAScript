@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seminar_3</title>
+  </head>
+  <body>
+    <div class="boot"><h1>Test</h1></div>
+    <script>
+      //Задание 1
+      /* const getPrototypeChain = (obj) => {
+        const arrPrototypes = [];
+        let currentObj = obj;
+        while (currentObj !== null) {
+          arrPrototypes.push(currentObj);
+          currentObj = Object.getPrototypeOf(currentObj);
+        }
+        return arrPrototypes;
+      };
+
+      const obj = document.querySelector(".boot");
+
+      console.log(getPrototypeChain(obj)); */
+
+      //Задание 2
+
+      /* class Person {
+        constructor(name, age) {
+          this.name = name;
+          this.age = age;
+        }
+
+        introduce = () => {
+          console.log(`Меня зовут ${this.name} и мне ${this.age}`);
+        };
+      }
+
+      const person1 = new Person("John", 25);
+      person1.introduce(); */
+
+      //Задание 3
+      /* function BankAccount(accountNumber, balance) {
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+
+        this.deposit = (amount) => {
+          this.balance += amount;
+        };
+
+        this.withdraw = (amount) => {
+          if (amount <= this.balance) {
+            this.balance -= amount;
+          } else {
+            console.log(`недостаточно средств на счету`);
+          }
+        };
+
+        this.getBalance = () => {
+          return this.balance;
+        };
+      }
+
+      const account_1 = new BankAccount("123456789", 10000);
+      console.log(account_1);
+      account_1.deposit(5000);
+      console.log(account_1.getBalance());
+      account_1.withdraw(8000);
+      console.log(account_1.getBalance());
+      account_1.withdraw(20000); */
+      //Задание 4
+      class Animal {
+        constructor(name) {
+          this.name = name;
+        }
+
+        speak() {
+          console.log(`Звук животного`);
+        }
+      }
+
+      class Dog extends Animal {
+        constructor(name, breed) {
+          super(name);
+          this.breed = breed;
+        }
+
+        speak() {
+          console.log(`Собака ${this.name} лает`);
+        }
+
+        fetch() {
+          console.log(`Собака ${this.name} принесла мяч.`);
+        }
+      }
+
+      const dog = new Dog("Шарик", "Овчарка");
+      console.log(dog);
+      dog.speak();
+      dog.fetch();
+    </script>
+  </body>
+</html>
