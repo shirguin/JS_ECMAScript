@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Work 3</title>
+  </head>
+  <body>
+    <script>
+      /*         Задание 1: ""Управление персоналом компании""
+                      Реализуйте класс Employee (сотрудник), который имеет следующие свойства и методы:
+                      Свойство name (имя) - строка, имя сотрудника.              Метод displayInfo() - выводит информацию о сотруднике (имя).
+                      Реализуйте класс Manager (менеджер), который наследует класс Employee и имеет дополнительное свойство и метод:
+
+                      Свойство department (отдел) - строка, отдел, в котором работает менеджер.
+                      Метод displayInfo() - переопределяет метод displayInfo() родительского класса и выводит информацию о менеджере (имя и отдел). */
+
+      class Employee {
+        constructor(name) {
+          this.name = name;
+        }
+
+        displayInfo() {
+          console.log(`Name: ${this.name}`);
+        }
+      }
+
+      class Manager extends Employee {
+        constructor(name, department) {
+          super(name);
+          this.department = department;
+        }
+
+        displayInfo() {
+          console.log(`Name: ${this.name}`);
+          console.log(`Department: ${this.department}`);
+        }
+      }
+
+      console.log('---Задание 1---');
+      const employee = new Employee("John Smith");
+      employee.displayInfo();
+
+      const manager = new Manager("Jane Doe", "Sales");
+      manager.displayInfo();
+
+      /*       ""Управление списком заказов""
+
+          Реализуйте класс Order (заказ), который имеет следующие свойства и методы:
+
+          Свойство orderNumber (номер заказа) - число, уникальный номер заказа.
+          Свойство products (продукты) - массив, содержащий список продуктов в заказе.
+          Метод addProduct(product) - принимает объект product и добавляет его в список продуктов заказа.
+          Метод getTotalPrice() - возвращает общую стоимость заказа, основанную на ценах продуктов. */
+
+      class Product {
+        constructor(name, price) {
+          this.name = name;
+          this.price = price;
+        }
+      }
+
+      class Order {
+        products = [];
+
+        constructor(orderNumber) {
+          this.orderNumber = orderNumber;
+        }
+
+        addProduct(product, quantity) {
+          let newProduct = {
+            product: product,
+            quantity: quantity,
+          };
+          this.products.push(newProduct);
+        }
+
+        getTotalPrice() {
+          let sum = 0;
+          this.products.forEach((element) => {
+            sum += element.product.price * element.quantity;
+          });
+          return sum;
+        }
+
+        getProducts() {
+          return this.products;
+        }
+
+        productsInfo(){
+            let counter = 1;
+            console.log('--------------');
+            this.products.forEach((element)=>{
+                console.log(`${counter}. ${element.product.name} ${element.quantity} x ${element.product.price} = ${element.quantity * element.product.price}`);
+                counter++;
+            })
+            console.log('--------------');
+            console.log(`ИТОГО: ${this.getTotalPrice()}`);
+
+        }
+      }
+
+      const order = new Order(12345);
+
+      const product1 = new Product("Phone", 500);
+      order.addProduct(product1, 3);
+
+      const product2 = new Product("Headphones", 100);
+      order.addProduct(product2, 10);
+
+      console.log('---Задание 2---');
+      console.log(order.getProducts());
+      console.log(`Общая сумма заказа: ${order.getTotalPrice()}`);
+
+      order.productsInfo();
+    </script>
+  </body>
+</html>
