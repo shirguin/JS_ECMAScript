@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seminar_4</title>
+  </head>
+  <body>
+    <script>
+      //Задание 1
+      /* const delayedMessage = (message, delay) => {
+        setTimeout(() => {
+          console.log(message);
+        }, delay);
+      }; */
+
+      /* delayedMessage("Сообщение 1", 2000);
+      delayedMessage("Сообщение 2", 1000);
+      delayedMessage("Сообщение 3", 3000);
+      console.log("Конец программы"); */
+
+      //Задание 2
+      /* const tasks = [
+        { name: "task 1", time: 1000 },
+        { name: "task 2", time: 2000 },
+        { name: "task 3", time: 3000 },
+        { name: "task 4", time: 4000 },
+        { name: "task 5", time: 5000 },
+      ];
+
+      const delayTasks = (tasks)=>{
+        let sumDelay = 0;
+        tasks.forEach(element => {
+            sumDelay+= element.time;
+            delayedMessage(element.name, sumDelay);
+        });
+      }
+
+      delayTasks(tasks);*/
+
+      //Задание 3
+      /* function loadData(url) {
+        const xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            console.log(xhr.responseText);
+          }
+        };
+
+        xhr.open("GET", url, true);
+
+        xhr.send();
+      }
+
+      loadData("https://jsonplaceholder.typicode.com/users"); */
+
+      //Задание 4
+      /*       const getData = async (url) => {
+        let response = null;
+        let result = null;
+        // сюда просится try-catch
+        response = await fetch(url);
+
+        if (response !== null && response.ok) {
+          result = await response.json();
+        } else {
+          console.log(
+            `We have some problems! Look, response status is ${response.status}.`
+          );
+        }
+
+        return result;
+      };
+
+      getData("https://jsonplaceholder.typicode.com/posts/1").then((x) =>
+        console.log(x)
+      ); */
+
+      /*       const loadData = async (url) => {
+        let response = await fetch(url);
+        if (response.ok) {
+          let json = await response.json();
+          console.log(json);
+        } else {
+          console.log(`Ошибка: ${response.status}`);
+        }
+      };
+
+      loadData("https://jsonplaceholder.typicode.com/users"); */
+      //Задание 5
+      function getUsers(url) {
+        fetch(url)
+          .then((answer) => {
+            if (answer.ok) {
+              return answer.json();
+            } else {
+              console.error("Ошибка при выполнении запроса:", answer.status);
+            }
+          })
+          .then((users) => {
+            const sortedUsers = users.sort((a, b) =>
+              a.name.localeCompare(b.name)
+            );
+            console.log(sortedUsers);
+          });
+      }
+
+      const url = "https://jsonplaceholder.typicode.com/users";
+      getUsers(url);
+    </script>
+  </body>
+</html>
